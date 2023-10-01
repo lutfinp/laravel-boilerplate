@@ -68,7 +68,7 @@ class PurchaseOrderCOntroller extends Controller
         $purchaseOrderLine->qty = $request->post('qty');
         $purchaseOrderLine->price = $request->post('price');
         $purchaseOrderLine->discount = $request->post('discount');
-        $purchaseOrderLine->total = (int)$request->post('qty') * (int)$request->post('price') - ((int)$request->post('discount') /100 * (int)$request->post('price'));
+        $purchaseOrderLine->total = ((int)$request->post('qty') * (int)$request->post('price')) * (100 -(int)($request->post('discount')))/100;
         $purchaseOrderLine->created_at = new DateTime();
         $purchaseOrderLine->updated_at = new DateTime();
         $purchaseOrderLine->save();

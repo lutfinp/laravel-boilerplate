@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PurchaseOrderCOntroller;
 
 /*
@@ -77,6 +78,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('puchase-order-lines/{id}/destroy', 'PurchaseOrderCOntroller@getPurchaseOrderLineDestroy')->name('purchase.order.lines.destroy');
     Route::post('puchase-order-lines/{id}/update', 'PurchaseOrderCOntroller@postPurchaseOrderLineUpdate')->name('purchase.order.lines.update');
     Route::post('puchase-order-lines/create', 'PurchaseOrderCOntroller@postPurchaseOrderLineInsert')->name('purchase.order.lines.insert');
+    
+    Route::get('reporting', 'DashboardCOntroller@getReportingPage')->name('reporting-page');
+    Route::get('reporting/all-data-product', 'DashboardController@getAllDataProduct')->name('reporting.all.data.product');
+    Route::get('reporting/chart-product', 'DashboardController@getChartProduct')->name('reporting.chart.product');
 }); 
 
 
